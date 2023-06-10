@@ -1,0 +1,89 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;  
+} 
+#wrapper{
+    /*  viewport height */
+    height:100vh;
+    overflow-x:hidden ; /*kyunki mujhe right direction mai swipe nahi karna hai*/
+    overflow-y:auto;  /*niche scrool karna hai */
+    perspective:10px; /* to on 3d axis*/
+}
+.container{
+    position:relative; /* non-static banaye taki hum background and fore ground images ka position absolute kar paye */
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100%;
+    transform-style: preserve-3d;  /* to make parallax effect if not use this then dono image apas mai chipak jaiyegi*/
+    z-index:-1;/* konsi image kiske upar ayegi */
+}
+.background{
+    transform:translateZ(-40px) scale(5);
+    
+}
+.foreground{
+    transform:translateZ(-20px) scale(3);  
+}
+.background, .foreground{
+    position:absolute; /* taki humm back,fore ko overlap kara paye */
+    /* containe r ke respect mai dono image chipak gaye*/
+    height:100%; /*relative to parent jo container hai kyunki hum usse non static bana diye hai*/ 
+    width:100%;
+    object-fit: cover; /*fit the image in container */
+    z-index:-1; 
+}
+h1{
+    position: absolute;
+    top:5rem ;     
+    font-size:10rem;  
+    letter-spacing:4px;
+    color:white;
+    text-shadow:0 0 10 px;
+
+}
+section{
+    background-color: rgb(45,45,45);
+    color:white;
+    padding:5rem 0rem;
+}
+.secHeading{
+    font-size:5rem;
+    padding:0 10rem; /* top & bottom 0rem and left& right 10rem*/
+     
+}
+.text{
+    font-size:1.5rem;
+    padding:0 10rem;
+    margin:5rem 0;
+}
+.bg{
+    position:relative; /*since biking img and heading overlap kar rahi hai to heading move karne ke liye hame bg ko non sttic banana padega*/
+    width:100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-size:cover;
+    height: 500px;
+    
+}
+.desc{
+    position:absolute;
+    background-color: white;
+    color:black; /* text color*/
+    padding:0.5rem 2.5rem;
+    top:50%;
+    left:50%;
+    transform: translateX(-50%) translateX(-50%);
+    font-size:3.5rem;
+    font-weight: 600;
+}
+.bg1{
+    background-image: url(sport-1.png);
+}
+.bg2{
+    background-image: url(sport-2.png);
+}
+.bg3{ 
+    background-image: url(sport-3.png);
+}
